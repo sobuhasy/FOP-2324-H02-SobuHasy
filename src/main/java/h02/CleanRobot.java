@@ -5,7 +5,7 @@ import fopbot.Robot;
 import fopbot.RobotFamily;
 
 /**
- * A {@link Robot} that is unable detect whether it is on a coin or not.
+ * A {@link Robot} that is unable to detect whether it is on a coin or not.
  */
 public class CleanRobot extends Robot {
     /**
