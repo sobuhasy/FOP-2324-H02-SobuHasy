@@ -1,6 +1,7 @@
 package h02;
 
 import fopbot.Robot;
+
 import static org.tudalgo.algoutils.student.Student.crash;
 
 /**
@@ -138,25 +139,23 @@ public class ControlCenter {
             moveCleanRobots(cleanRobots, coinsInWorld);
             coinsGathered = allCoinsGathered(coinsInWorld);
         }
-        System.out.println("Finished");
+        System.out.println("Finished cleaning the world!");
     }
 
     /**
-     * Returns whether the provided array of coin positions contains at least one coin
+     * Returns whether there are no coins left in the world.
      *
      * @param coins The array to search for coins
      * @return Whether the provided array contains at least one entry that is not false
      */
     public boolean allCoinsGathered(boolean[][] coins) {
-        boolean allCoinsGathered = true;
-        for (boolean[] coin : coins) {
-            for (boolean b : coin) {
+        for (boolean[] coinRow : coins) {
+            for (boolean b : coinRow) {
                 if (b) {
-                    allCoinsGathered = false;
-                    break;
+                    return false;
                 }
             }
         }
-        return allCoinsGathered;
+        return true;
     }
 }
