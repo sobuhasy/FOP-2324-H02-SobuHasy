@@ -116,10 +116,10 @@ public class ControlCenter {
     /**
      * Performs one iteration of collecting coins, using the provided arrays to clean and determine where to clean.
      *
-     * @param positionsOfCoins An array with all the coin positions to be collected
-     * @param cleanRobots      An array containing the {@linkplain CleanRobot CleanRobots} to collect the coins with.
+     * @param coinPositions An array with all the coin positions to be collected
+     * @param cleanRobots   An array containing the {@linkplain CleanRobot CleanRobots} to collect the coins with.
      */
-    public void moveCleanRobots(CleanRobot[] cleanRobots, boolean[][] positionsOfCoins) {
+    public void moveCleanRobots(CleanRobot[] cleanRobots, boolean[][] coinPositions) {
         // TODO: H4.3
         crash("H4.3 - remove if implemented");
     }
