@@ -18,6 +18,13 @@ public class ControlCenter {
      */
     public ScanRobot[] initScanRobots() {
         // TODO: H1.1
+        // erstellt einem Array mit dem korrekten Größe
+        final ScanRobot[] scanRobots = new ScanRobot[World.getWidth() - 1];
+        // den Array füllen
+        for (int i = 0; i < World.getWidth() - 1; i++){
+            scanRobots[i] = new ScanRobot(i+1, 0, Direction.UP, 0);
+        }
+        return scanRobots;
         return crash("H1.1 - remove if implemented");
     }
 
@@ -34,6 +41,7 @@ public class ControlCenter {
         for (int i = 0; i < World.getHeight() - 1; i++){
             cleanRobots[i] = new CleanRobot(0, i+1, Direction.RIGHT, 0);
         }
+        return cleanRobots;
         return crash("H1.2 - remove if implemented");
     }
 
