@@ -11,6 +11,8 @@ import static org.tudalgo.algoutils.student.Student.crash;
  */
 public class ControlCenter {
 
+    private java.lang.Object Math;
+
     /**
      * Creates a new line of {@linkplain ScanRobot ScanRobots}.
      *
@@ -25,7 +27,6 @@ public class ControlCenter {
             scanRobots[i] = new ScanRobot(i+1, 0, Direction.UP, 0);
         }
         return scanRobots;
-        return crash("H1.1 - remove if implemented");
     }
 
     /**
@@ -42,7 +43,6 @@ public class ControlCenter {
             cleanRobots[i] = new CleanRobot(0, i+1, Direction.RIGHT, 0);
         }
         return cleanRobots;
-        return crash("H1.2 - remove if implemented");
     }
 
     /**
