@@ -1,6 +1,8 @@
 package h02;
 
+import fopbot.Direction;
 import fopbot.Robot;
+import fopbot.World;
 
 import static org.tudalgo.algoutils.student.Student.crash;
 
@@ -26,6 +28,12 @@ public class ControlCenter {
      */
     public CleanRobot[] initCleaningRobots() {
         // TODO: H1.2
+        // erstellt einem Array mit dem korrekten Größe
+        final CleanRobot[] cleanRobots = new CleanRobot[World.getHeight() - 1];
+        // den Array füllen
+        for (int i = 0; i < World.getHeight() - 1; i++){
+            cleanRobots[i] = new CleanRobot(0, i+1, Direction.RIGHT, 0);
+        }
         return crash("H1.2 - remove if implemented");
     }
 
