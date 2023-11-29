@@ -3,6 +3,7 @@ package h02;
 import fopbot.Direction;
 import fopbot.Robot;
 import fopbot.World;
+import org.jetbrains.annotations.NotNull;
 
 import static org.tudalgo.algoutils.student.Student.crash;
 
@@ -66,7 +67,7 @@ public class ControlCenter {
      * Rotates the {@linkplain Robot robots} in the given array in ascending order and calls {@link #checkForDamage} on every {@link Robot} after its rotation.
      * @param robots The array of {@linkplain Robot robots} to rotate
      */
-    public void rotateRobots(final Robot[] robots) {
+    public void rotateRobots(final Robot @NotNull [] robots) {
         // TODO: H3.2
         for(final Robot robot : robots) {
             robot.turnLeft();
@@ -96,6 +97,21 @@ public class ControlCenter {
      */
     public void replaceBrokenRobots(Robot[] robots) {
         // TODO: H3.3
+        for (int i = 0; i < robots.length; i++){
+            if(robots[i].isTurnedOff()){
+                // alle wichtige Attributen speichern
+                final int x = robots[i].getX();
+                final int y = robots[i].getY();
+                final int numberOfCoins = robots[i].getNumberOfCoins();
+                final Direction direction = robots[i].getDirection();
+                // einen neuen Roboter mit den vergangenen gespeicherten Attributen erstellen
+                if (isScanRobotArray(robots)){
+                    robots[i] = new ScanRobot(x, y, direction, numberOfCoins);
+                } else {
+                    robots[i] = new CleanRobot(x, y, direction, numberOfCoins);
+                }
+            }
+        }
         crash("H3.3 - remove if implemented");
     }
 
