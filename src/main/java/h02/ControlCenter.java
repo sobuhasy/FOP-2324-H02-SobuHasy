@@ -52,16 +52,27 @@ public class ControlCenter {
      */
     public void reverseRobots(Robot[] robots) {
         // TODO: H3.1
+        for (int i = robots.length; i > robots.length - 1; i++){
+            // Hier wird die Postitionen der Roboter gewechselt
+            final Robot tmp = robots[i - 1];
+            robots[i - 1] = robots[robots.length - i];
+            robots[robots.length - i] = tmp;
+
+        }
         crash("H3.1 - remove if implemented");
     }
 
     /**
      * Rotates the {@linkplain Robot robots} in the given array in ascending order and calls {@link #checkForDamage} on every {@link Robot} after its rotation.
-     *
      * @param robots The array of {@linkplain Robot robots} to rotate
      */
-    public void rotateRobots(Robot[] robots) {
+    public void rotateRobots(final Robot[] robots) {
         // TODO: H3.2
+        for(final Robot robot : robots) {
+            robot.turnLeft();
+            robot.turnLeft();
+            checkForDamage(robot);
+        }
         crash("H3.2 - remove if implemented");
     }
 
