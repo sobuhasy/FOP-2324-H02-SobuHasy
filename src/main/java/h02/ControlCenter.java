@@ -60,7 +60,6 @@ public class ControlCenter {
             robots[robots.length - i] = tmp;
 
         }
-        crash("H3.1 - remove if implemented");
     }
 
     /**
@@ -74,7 +73,6 @@ public class ControlCenter {
             robot.turnLeft();
             checkForDamage(robot);
         }
-        crash("H3.2 - remove if implemented");
     }
 
     /**
@@ -112,7 +110,6 @@ public class ControlCenter {
                 }
             }
         }
-        crash("H3.3 - remove if implemented");
     }
 
     /**
@@ -135,7 +132,6 @@ public class ControlCenter {
         reverseRobots(robots);
         rotateRobots(robots);
         replaceBrokenRobots(robots);
-        crash("H3.4 - remove if implemented");
     }
 
     /**
@@ -150,7 +146,6 @@ public class ControlCenter {
                 robot.move();
             }
         }
-        crash("H4.1 - remove if implemented");
     }
 
     /**
@@ -161,7 +156,30 @@ public class ControlCenter {
      */
     public boolean[][] scanWorld(ScanRobot[] scanRobots) {
         // TODO: H4.2
-        return crash("H4.2 - remove if implemented");
+        // booleans are initialised as false in arrays
+        final boolean[][] coinPositions = new boolean[World.getHeight()][World.getWidth()];
+        boolean allAtEndOfWorld = false;
+        while (!allAtEndOfWorld) {
+            for (final ScanRobot scanRobot : scanRobots){
+                // check whether the end of the world has been reached
+                if (!scanRobot.isFrontClear()){
+                    allAtEndOfWorld = true;
+                    continue;
+                }
+                // if not move and potentially deal with a found coin
+                scanRobot.move();
+                if (scanRobot.isOnACoin()){
+                    final int x = scanRobot.getX();
+                    final int y = scanRobot.getY();
+                    coinPositions[y][x] = true;
+                }
+            }
+        }
+        // if the while loop has terminated, the end of the world has been reached, so spin the robots and return
+        spinRobots(scanRobots);
+        returnRobots(scanRobots);
+        spinRobots(scanRobots);
+        return coinPositions;
     }
 
     /**
