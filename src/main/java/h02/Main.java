@@ -16,10 +16,10 @@ public class Main {
      */
     public static void main(String[] args) {
         // define world dimensions
-        int numberOfRows = 15;
-        int numberOfColumns = 16;
+        final int numberOfRows = 15;
+        final int numberOfColumns = 16;
         // create an array for filling the world with some coins in a mysterious pattern
-        int[][] coins = new int[][]{
+        final int[][] coins = new int[][]{
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
@@ -45,7 +45,7 @@ public class Main {
         // coins[2][9] = 2;
 
         // create a control center
-        ControlCenter controlCenter = new ControlCenter();
+        final ControlCenter controlCenter = new ControlCenter();
         // set the world dimensions
         World.setSize(numberOfColumns, numberOfRows);
         // don't draw turned off robots
@@ -69,10 +69,10 @@ public class Main {
      */
     public static void placeCoinsInWorld(int[][] coins) {
         // TODO: H2
-        for(int x = 0; x < coins.length; x++){
-            for(int y = 0; y < coins[x].length; y++){
-                if(coins[x][y] != 0){
-                    World.putCoins(x, y, coins[x][y]);
+        for(int y = 0; y < coins.length; y++){
+            for(int x = 0; x < coins[y].length; x++){
+                if(coins[y][x] != 0){
+                    World.putCoins(x, y, coins[y][x]);
                 }
             }
         }

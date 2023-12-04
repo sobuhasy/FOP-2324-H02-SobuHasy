@@ -53,7 +53,7 @@ public class ControlCenter {
      */
     public void reverseRobots(Robot[] robots) {
         // TODO: H3.1
-        for (int i = robots.length; i > robots.length - 1; i++){
+        for (int i = robots.length; i > robots.length / 2; i--){
             // Hier wird die Postitionen der Roboter gewechselt
             final Robot tmp = robots[i - 1];
             robots[i - 1] = robots[robots.length - i];
@@ -82,7 +82,7 @@ public class ControlCenter {
      */
     public void checkForDamage(Robot robot) throws InterruptedException {
         final double p = 0.5;
-        if (Math.wait() > p) {
+        if (Math.random() > p) {
             robot.turnOff();
         }
     }
@@ -93,7 +93,7 @@ public class ControlCenter {
      *
      * @param robots An array possibly containing {@linkplain Robot robots} that are turned off and need to be replaced
      */
-    public void replaceBrokenRobots(Robot[] robots) {
+    public void replaceBrokenRobots(final Robot[] robots) {
         // TODO: H3.3
         for (int i = 0; i < robots.length; i++){
             if(robots[i].isTurnedOff()){
@@ -215,11 +215,11 @@ public class ControlCenter {
      * Collects all the coins in the world using all the previously implemented helper methods.
      */
     public void cleanWorld() {
-        ScanRobot[] scanRobots = initScanRobots();
-        CleanRobot[] cleanRobots = initCleaningRobots();
+        final ScanRobot[] scanRobots = initScanRobots();
+        final CleanRobot[] cleanRobots = initCleaningRobots();
         boolean coinsGathered = false;
         while (!coinsGathered) {
-            boolean[][] coinsInWorld = scanWorld(scanRobots);
+            final boolean[][] coinsInWorld = scanWorld(scanRobots);
             if (allCoinsGathered(coinsInWorld)) {
                 break;
             }
@@ -236,8 +236,8 @@ public class ControlCenter {
      * @return Whether the provided array contains at least one entry that is not false
      */
     public boolean allCoinsGathered(boolean[][] coins) {
-        for (boolean[] coinRow : coins) {
-            for (boolean b : coinRow) {
+        for (final boolean[] coinRow : coins) {
+            for (final boolean b : coinRow) {
                 if (b) {
                     return false;
                 }
