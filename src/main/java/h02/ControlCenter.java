@@ -132,6 +132,9 @@ public class ControlCenter {
      */
     public void spinRobots(Robot[] robots) {
         // TODO: H3.4
+        reverseRobots(robots);
+        rotateRobots(robots);
+        replaceBrokenRobots(robots);
         crash("H3.4 - remove if implemented");
     }
 
