@@ -4,6 +4,7 @@ import fopbot.Direction;
 import fopbot.Robot;
 import fopbot.World;
 import org.jetbrains.annotations.NotNull;
+import java.lang.Math;
 
 import static org.tudalgo.algoutils.student.Student.crash;
 
@@ -11,8 +12,6 @@ import static org.tudalgo.algoutils.student.Student.crash;
  * A class that controls the {@linkplain Robot robots} and their actions.
  */
 public class ControlCenter {
-
-    private java.lang.Object Math;
 
     /**
      * Creates a new line of {@linkplain ScanRobot ScanRobots}.
@@ -71,7 +70,11 @@ public class ControlCenter {
         for(final Robot robot : robots) {
             robot.turnLeft();
             robot.turnLeft();
-            checkForDamage(robot);
+            try {
+                checkForDamage(robot);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

@@ -76,6 +76,5 @@ public class Main {
                 }
             }
         }
-        crash("H2 - remove if implemented");
     }
 }
