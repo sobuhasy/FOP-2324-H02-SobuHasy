@@ -19,7 +19,7 @@ public class ControlCenter {
      * @return An array containing the newly initialised robots
      */
     public ScanRobot[] initScanRobots() {
-        // TODO: H1.1
+        // H1.1
         // erstellt einem Array mit dem korrekten Größe
         final ScanRobot[] scanRobots = new ScanRobot[World.getWidth() - 1];
         // den Array füllen
@@ -35,7 +35,7 @@ public class ControlCenter {
      * @return An array containing the newly initialised robots
      */
     public CleanRobot[] initCleaningRobots() {
-        // TODO: H1.2
+        // H1.2
         // erstellt einem Array mit dem korrekten Größe
         final CleanRobot[] cleanRobots = new CleanRobot[World.getHeight() - 1];
         // den Array füllen
@@ -51,7 +51,7 @@ public class ControlCenter {
      * @param robots The array to invert
      */
     public void reverseRobots(Robot[] robots) {
-        // TODO: H3.1
+        // H3.1
         for (int i = robots.length; i > robots.length / 2; i--){
             // Hier wird die Postitionen der Roboter gewechselt
             final Robot tmp = robots[i - 1];
@@ -66,7 +66,7 @@ public class ControlCenter {
      * @param robots The array of {@linkplain Robot robots} to rotate
      */
     public void rotateRobots(final Robot @NotNull [] robots) {
-        // TODO: H3.2
+        // H3.2
         for(final Robot robot : robots) {
             robot.turnLeft();
             robot.turnLeft();
@@ -97,7 +97,7 @@ public class ControlCenter {
      * @param robots An array possibly containing {@linkplain Robot robots} that are turned off and need to be replaced
      */
     public void replaceBrokenRobots(final Robot[] robots) {
-        // TODO: H3.3
+        // H3.3
         for (int i = 0; i < robots.length; i++){
             if(robots[i].isTurnedOff()){
                 // alle wichtige Attributen speichern
@@ -131,7 +131,7 @@ public class ControlCenter {
      * @param robots The array to perform the aforementioned actions on
      */
     public void spinRobots(Robot[] robots) {
-        // TODO: H3.4
+        // H3.4
         reverseRobots(robots);
         rotateRobots(robots);
         replaceBrokenRobots(robots);
@@ -143,7 +143,7 @@ public class ControlCenter {
      * @param robots The robots to move
      */
     public void returnRobots(Robot[] robots) {
-        // TODO: H4.1
+        // H4.1
         for (final Robot robot: robots){
             while (robot.isFrontClear()){
                 robot.move();
@@ -158,7 +158,7 @@ public class ControlCenter {
      * @return An array detailing which world fields contain at least one coin
      */
     public boolean[][] scanWorld(ScanRobot[] scanRobots) {
-        // TODO: H4.2
+        // H4.2
         // booleans are initialised as false in arrays
         final boolean[][] coinPositions = new boolean[World.getHeight()][World.getWidth()];
         boolean allAtEndOfWorld = false;
@@ -192,7 +192,7 @@ public class ControlCenter {
      * @param cleanRobots   An array containing the {@linkplain CleanRobot CleanRobots} to collect the coins with.
      */
     public void moveCleanRobots(CleanRobot[] cleanRobots, boolean[][] coinPositions) {
-        // TODO: H4.3
+        // H4.3
         boolean allAtEndOfWorld = false;
         // ähnlich wie ScanWorld, wir müssen nur Münzen sammeln wenn diese gebraucht sind statt einen Array-Eingang hinzufügen
         while(!allAtEndOfWorld){
