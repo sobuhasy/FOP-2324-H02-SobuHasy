@@ -80,9 +80,9 @@ public class ControlCenter {
      *
      * @param robot The {@link Robot} to inspect
      */
-    public void checkForDamage(Robot robot) {
+    public void checkForDamage(Robot robot) throws InterruptedException {
         final double p = 0.5;
-        if (Math.random() > p) {
+        if (Math.wait() > p) {
             robot.turnOff();
         }
     }
@@ -190,7 +190,25 @@ public class ControlCenter {
      */
     public void moveCleanRobots(CleanRobot[] cleanRobots, boolean[][] coinPositions) {
         // TODO: H4.3
-        crash("H4.3 - remove if implemented");
+        boolean allAtEndOfWorld = false;
+        // ähnlich wie ScanWorld, wir müssen nur Münzen sammeln wenn diese gebraucht sind statt einen Array-Eingang hinzufügen
+        while(!allAtEndOfWorld){
+            for(final CleanRobot cleanRobot: cleanRobots){
+                if(!cleanRobot.isFrontClear()){
+                    allAtEndOfWorld=true;
+                    continue;
+                }
+                cleanRobot.move();
+                final int x = cleanRobot.getX();
+                final int y = cleanRobot.getY();
+                if(coinPositions[y][x]){
+                    cleanRobot.pickCoin();
+                }
+            }
+        }
+        spinRobots(cleanRobots);
+        returnRobots(cleanRobots);
+        spinRobots(cleanRobots);
     }
 
     /**

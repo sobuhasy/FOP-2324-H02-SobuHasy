@@ -70,7 +70,7 @@ public class Main {
     public static void placeCoinsInWorld(int[][] coins) {
         // TODO: H2
         for(int x = 0; x < coins.length; x++){
-            for(int y = 0; x < coins[x].length; y++){
+            for(int y = 0; y < coins[x].length; y++){
                 if(coins[x][y] != 0){
                     World.putCoins(x, y, coins[x][y]);
                 }
