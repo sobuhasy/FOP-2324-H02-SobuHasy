@@ -145,6 +145,11 @@ public class ControlCenter {
      */
     public void returnRobots(Robot[] robots) {
         // TODO: H4.1
+        for (final Robot robot: robots){
+            while (robot.isFrontClear()){
+                robot.move();
+            }
+        }
         crash("H4.1 - remove if implemented");
     }
 
